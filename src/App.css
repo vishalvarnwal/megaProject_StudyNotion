@@ -1,0 +1,21 @@
+/* write your css here */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.homepage_bg {
+  background: url("./assets/Images/bghome.svg");
+}
+/* .test {
+  border: 1px dashed red;
+  height: 20px;
+  width: 0;
+} */
+.timeline:last-child .test {
+  border: none;
+}
