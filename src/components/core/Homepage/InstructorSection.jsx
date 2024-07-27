@@ -11,8 +11,9 @@ const InstructorSection = () => {
         <img src={Instructor} alt="instructor" className="shadow-white" />
       </div>
       <div className="w-[50%] flex flex-col gap-6">
-        <div className="text-4xl font-semibold">
-          {["Become an", <br />, <HighlightText text="instructor" />]}
+        <div className="text-4xl font-semibold font-inter flex flex-col">
+          {"Become an"}
+          <HighlightText text="instructor" />
         </div>
         <p className="text-[16px] font-medium w-[90%] text-richblack-300">
           Instructors from around the world teach millions of students on

@@ -34,7 +34,7 @@ const TimelineSection = () => {
         <div className="flex flex-col width-[50%] gap-14">
           {timeLine.map((element, index) => {
             return (
-              <>
+              <div key={index}>
                 <div className="timeline flex gap-4 items-center key={index} relative">
                   <div className="bg-white rounded-full w-[50px] h-[50px] flex items-center justify-center">
                     <img src={element.logo} />
@@ -47,7 +47,7 @@ const TimelineSection = () => {
                   </div>
                   <div className="test border border-dashed border-pure-greys-100 h-10 absolute self-center left-[24px] top-[58px]"></div>
                 </div>
-              </>
+              </div>
             );
           })}
         </div>
