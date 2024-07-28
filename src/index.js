@@ -15,6 +15,12 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
+        <Toaster
+          toastOptions={{
+            success: { duration: 2000 },
+            error: { duration: 2000 },
+          }}
+        />
         <App />
       </BrowserRouter>
     </Provider>
