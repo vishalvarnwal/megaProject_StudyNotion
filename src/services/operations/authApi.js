@@ -1,10 +1,15 @@
 import toast from "react-hot-toast";
 import { apiConnector } from "../apiConnectors";
 import { endpoints } from "../apis";
-import { setLoading } from "../../slices/authSlice";
+import { setLoading, setToken } from "../../slices/authSlice";
 
-const { RESETPASSWORD_API, RESETPASSTOKEN_API, SIGNUP_API, SENDOTP_API } =
-  endpoints;
+const {
+  RESETPASSWORD_API,
+  RESETPASSTOKEN_API,
+  SIGNUP_API,
+  SENDOTP_API,
+  LOGIN_API,
+} = endpoints;
 
 export function sendOtp(email, navigate) {
   return async (dispatch) => {
@@ -79,6 +84,31 @@ export function signUp(
   };
 }
 
+export function login({ email, password }, navigate) {
+  return async (dispatch) => {
+    const toastId = toast.loading("Loading...");
+    try {
+      const response = await apiConnector("POST", LOGIN_API, {
+        email,
+        password,
+      });
+      if (!response.data.success) {
+        throw new Error("unable to login");
+      }
+      if (response.data?.newUser) {
+        toast.dismiss(toastId);
+        toast.error("User is not registered, Please create an account.");
+        navigate("/signup");
+        return;
+      }
+      dispatch(setToken(response.data?.token));
+      toast.success("login successful!");
+    } catch (error) {
+      toast.error("Please enter correct credentials");
+    }
+    toast.dismiss(toastId);
+  };
+}
 export function getPasswordResetToken(email, setEmailSent) {
   return async (dispatch) => {
     dispatch(setLoading(true));

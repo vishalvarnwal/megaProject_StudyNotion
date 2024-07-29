@@ -41,6 +41,7 @@ const Navbar = () => {
   useEffect(() => {
     fetchSublinks();
   }, []);
+
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname);
   };
@@ -66,12 +67,17 @@ const Navbar = () => {
                         <div className="absolute left-[50%] top-0 h-6 w-6 rotate-45 rounded bg-richblack-5 translate-x-[-30%] translate-y-[-40%]"></div>
                         {subLinks.length ? (
                           subLinks.map((subLink, index) => (
-                            <Link to={"abc"} key={index}>
+                            <Link
+                              to={`/catalog/${subLink.name
+                                .replaceAll(" ", "-")
+                                .toLowerCase()}`}
+                              key={index}
+                            >
                               <p>{subLink.name}</p>
                             </Link>
                           ))
                         ) : (
-                          <div>fkghfg</div>
+                          <div>No categories found</div>
                         )}
                       </div>
                     </div>

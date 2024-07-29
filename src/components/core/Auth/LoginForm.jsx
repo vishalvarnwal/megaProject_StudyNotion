@@ -1,20 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-
-// import { login } from "../../../services/operations/authAPI"
+import { login } from "../../../services/operations/authApi";
 
 function LoginForm() {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
   const [showPassword, setShowPassword] = useState(false);
-
   const { email, password } = formData;
 
   const handleOnChange = (e) => {
@@ -26,7 +24,11 @@ function LoginForm() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    // dispatch(login(email, password, navigate))
+    dispatch(login(formData, navigate));
+    setFormData({
+      email: "",
+      password: "",
+    });
   };
 
   return (
@@ -40,7 +42,7 @@ function LoginForm() {
         </p>
         <input
           required
-          type="text"
+          type="email"
           name="email"
           value={email}
           onChange={handleOnChange}
