@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 
 const initialState = {
-  totalItem: localStorage.getItem("totelItems")
+  totalItems: localStorage.getItem("totelItems")
     ? JSON.parse(localStorage.getItem("totelItems"))
     : 0,
 };
@@ -14,6 +14,9 @@ const cartSlice = createSlice({
     setTotalItems(state, value) {
       state.totalItem = state.totalItem + value.payload;
     },
+    resetCart(state, value) {
+      // state.totalItem = state.totalItem + value.payload;
+    },
 
     //add to cart
     //remove from cart
@@ -21,6 +24,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { setTotalItems } = cartSlice.actions;
+export const { setTotalItems, resetCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

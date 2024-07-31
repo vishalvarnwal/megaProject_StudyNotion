@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { GoArrowLeft } from "react-icons/go";
 import { resetPassword } from "../services/operations/authApi";
 
 const UpdatePassword = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.auth);
@@ -28,7 +29,7 @@ const UpdatePassword = () => {
     const { password, confirmPassword } = formData;
     const token = location.pathname.split("/").at(-1);
     e.preventDefault();
-    dispatch(resetPassword(password, confirmPassword, token));
+    dispatch(resetPassword(password, confirmPassword, token, navigate));
     setFormData({
       password: "",
       confirmPassword: "",
