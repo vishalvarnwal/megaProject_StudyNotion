@@ -105,7 +105,7 @@ const Navbar = () => {
 
         {/* login signup and dashboard */}
         <div className="flex gap-x-4 items-center">
-          {user && user.accountType != ACCOUNT_TYPE.INSTRUCTOR && (
+          {user && user.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
             <Link to="/dashboard/cart" className="relative">
               <IoCartOutline />
               {totalItems > 0 && <span>totalItems</span>}
@@ -125,7 +125,7 @@ const Navbar = () => {
               </button>
             </Link>
           )}
-          {token != null && <ProfileDropdown />}
+          {token !== null && <ProfileDropdown />}
         </div>
       </div>
       ;
