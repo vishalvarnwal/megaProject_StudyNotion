@@ -42,7 +42,7 @@ const About = () => {
         </div>
       </section>
 
-      <hr class="border-t border-richblack-700 my-10 w-full" />
+      <hr className="border-t border-richblack-700 my-10 w-full" />
 
       {/* section3 */}
       <section className="mt-10 items-center justify-center w-11/12">

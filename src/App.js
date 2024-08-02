@@ -3,6 +3,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import OpenRoute from "./components/core/Auth/OpenRoute";
+import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -10,6 +11,10 @@ import UpdatePassword from "./pages/UpdatePassword";
 import Navbar from "./components/common/Navbar";
 import VerifyEmail from "./pages/VerifyEmail";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Error from "./pages/Error";
+import MyProfile from "./components/core/Dashboard/MyProfile";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -49,14 +54,8 @@ function App() {
             </OpenRoute>
           }
         />
-        <Route
-          path="/about"
-          element={
-            <OpenRoute>
-              <About />
-            </OpenRoute>
-          }
-        />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route
           path="/verify-email"
           element={
@@ -65,6 +64,18 @@ function App() {
             </OpenRoute>
           }
         />
+        <Route
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        >
+          <Route path="dashboard/my-profile" element={<MyProfile />} />
+        </Route>
+
+        {/* 404 Page */}
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );

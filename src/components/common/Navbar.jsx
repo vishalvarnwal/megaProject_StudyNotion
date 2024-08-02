@@ -63,7 +63,7 @@ const Navbar = () => {
                       <p>{navLink.title}</p>
 
                       <RiArrowDropDownLine className="text-red text-bold" />
-                      <div className="invisible absolute left-[50%] top-[50%] rounded-md bg-richblack-5 p-4 text-richblack-900 transition-all duration-200 opacity-0 group-hover:visible group-hover:opacity-100 lg:w-[250px] translate-x-[-70%] translate-y-[30%] flex flex-col">
+                      <div className="invisible absolute left-[50%] top-[50%] rounded-md bg-richblack-5 p-4 text-richblack-900 transition-all duration-200 opacity-0 group-hover:visible group-hover:opacity-100 lg:w-[250px] translate-x-[-70%] translate-y-[30%] flex flex-col z-10">
                         <div className="absolute left-[50%] top-0 h-6 w-6 rotate-45 rounded bg-richblack-5 translate-x-[-30%] translate-y-[-40%]"></div>
                         {subLinks.length ? (
                           subLinks.map((subLink, index) => (

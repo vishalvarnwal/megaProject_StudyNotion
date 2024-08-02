@@ -11,6 +11,7 @@ import ReviewsFromLearner from "../components/core/Homepage/ReviewsFromLearner";
 import Footer from "../components/common/Footer";
 import Banner from "../assets/Images/banner.mp4";
 import ExploreMore from "../components/core/Homepage/ExploreMore";
+import SidebarLink from "../components/core/Dashboard/SidebarLink";
 const Home = () => {
   return (
     <div>
